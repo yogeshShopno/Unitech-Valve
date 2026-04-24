@@ -119,7 +119,7 @@ seedProducts();
 
 // Middleware
 app.use(cors({
-  origin: ['http://localhost:3000', 'http://localhost:3001', 'http://192.168.1.132:3000', 'http://192.168.1.132:3001', "https://unitech-valve.vercel.app/"],
+  origin: ['http://localhost:3000', 'http://localhost:3001', 'http://192.168.1.132:3000', 'http://192.168.1.132:3001', "https://unitech-valve.vercel.app"],
   credentials: true
 }));
 app.use(cookieParser());
