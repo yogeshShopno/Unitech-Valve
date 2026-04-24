@@ -79,8 +79,8 @@ export default function QuotationList() {
 
   const getStatusStyle = (status: string) => {
     switch (status) {
-      case 'complete': return 'bg-green-100 text-green-700 border-green-200';
-      case 'reject': return 'bg-red-100 text-red-700 border-red-200';
+      case 'received': return 'bg-green-100 text-green-700 border-green-200';
+      case 'Not received': return 'bg-red-100 text-red-700 border-red-200';
       case 'inprogress': return 'bg-blue-100 text-blue-700 border-blue-200';
       case 'pending': return 'bg-yellow-100 text-yellow-700 border-yellow-200';
       default: return 'bg-gray-100 text-gray-700 border-gray-200';
@@ -96,7 +96,7 @@ export default function QuotationList() {
             <p className="text-secondary font-medium mt-1 uppercase text-[10px] tracking-widest font-black">Industrial Ledger Billing System</p>
           </div>
           <div className="flex gap-2">
-            <button 
+            <button
               onClick={() => router.push('/quotations/new')}
               className="bg-primary text-white px-6 py-3 text-xs font-bold flex items-center gap-2 hover:bg-primary/90 transition-all shadow-lg uppercase tracking-widest"
             >
@@ -155,14 +155,14 @@ export default function QuotationList() {
                     </td>
                     <td className="px-6 py-5 text-right">
                       <div className="flex justify-end gap-2 isolate">
-                        <button 
+                        <button
                           onClick={() => router.push(`/quotations/${quote._id}/preview?autoDownload=true`)}
                           className="w-8 h-8 flex items-center justify-center border border-surface-container-high text-secondary hover:text-primary hover:border-primary transition-all shadow-sm bg-white"
                           title="Download Quotation PDF"
                         >
                           <Eye className="w-3.5 h-3.5" />
                         </button>
-                        <button 
+                        <button
                           onClick={() => router.push(`/quotations/edit/${quote._id}`)}
                           className="w-8 h-8 flex items-center justify-center border border-surface-container-high text-secondary hover:text-primary hover:border-primary transition-all shadow-sm bg-white"
                           title="Edit Quotation"
@@ -170,7 +170,7 @@ export default function QuotationList() {
                           <Edit2 className="w-3.5 h-3.5" />
                         </button>
                         {!quote.performa_invoice && (
-                          <button 
+                          <button
                             onClick={() => handleConvertToProforma(quote._id)}
                             className="w-8 h-8 flex items-center justify-center border border-surface-container-high text-secondary hover:text-green-600 hover:border-green-600 transition-all shadow-sm bg-white"
                             title="Convert to Proforma Invoice"
@@ -178,7 +178,7 @@ export default function QuotationList() {
                             <Receipt className="w-3.5 h-3.5" />
                           </button>
                         )}
-                        <button 
+                        <button
                           onClick={() => handleDelete(quote._id)}
                           className="w-8 h-8 flex items-center justify-center border border-surface-container-high text-secondary hover:text-red-500 hover:border-red-500 transition-all shadow-sm bg-white"
                           title="Delete Quotation"
@@ -198,7 +198,7 @@ export default function QuotationList() {
                 Total {total} Quotations
               </span>
               <div className="flex gap-1">
-                <button 
+                <button
                   disabled={page === 1}
                   onClick={() => setPage(page - 1)}
                   className="w-8 h-8 flex items-center justify-center border border-surface-container-high hover:bg-surface-container-high disabled:opacity-20 transition-all font-bold"
@@ -208,7 +208,7 @@ export default function QuotationList() {
                 <div className="flex items-center px-4 text-xs font-black uppercase text-primary bg-primary/5">
                   Page {page} of {Math.ceil(total / limit) || 1}
                 </div>
-                <button 
+                <button
                   disabled={page >= Math.ceil(total / limit)}
                   onClick={() => setPage(page + 1)}
                   className="w-8 h-8 flex items-center justify-center border border-surface-container-high hover:bg-surface-container-high disabled:opacity-20 transition-all font-bold"

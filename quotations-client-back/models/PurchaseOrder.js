@@ -22,7 +22,7 @@ const PurchaseOrderSchema = new mongoose.Schema({
   Additional_discount: { type: Number, default: 0 },
   total: { type: Number, required: true },
   referencePerson: { type: String },
-  status: { type: String, enum: ['pending', 'completed', 'cancelled'], default: 'pending' },
+  status: { type: String, enum: ['pending', 'received', 'cancelled'], default: 'pending' },
   terms: { type: String },
 }, { timestamps: true });
 

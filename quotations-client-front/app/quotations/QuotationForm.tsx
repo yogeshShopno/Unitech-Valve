@@ -78,7 +78,7 @@ export default function QuotationForm({ id, type = 'quotation' }: QuotationFormP
           if (type === 'proforma') endpoint = `proforma-invoices/${id}`;
           else if (type === 'po') endpoint = `purchase-orders/${id}`;
           else endpoint = `quotations/${id}`;
-          
+
           const quoteRes = await apiFetch(endpoint);
           const quoteData = await quoteRes.json();
           if (quoteRes.ok) {
@@ -237,7 +237,7 @@ export default function QuotationForm({ id, type = 'quotation' }: QuotationFormP
       else if (type === 'po') baseEndpoint = 'purchase-orders';
 
       const endpoint = id ? `${baseEndpoint}/${id}` : baseEndpoint;
-      
+
       const submissionData = { ...formData, terms: compiledTerms };
       if (type === 'po') {
         // @ts-ignore
@@ -290,8 +290,8 @@ export default function QuotationForm({ id, type = 'quotation' }: QuotationFormP
             </button>
             <div>
               <h1 className="text-3xl font-black uppercase tracking-tighter">
-                {id 
-                  ? `Edit ${type === 'proforma' ? 'Proforma Invoice' : type === 'po' ? 'Purchase Order' : 'Quotation'}` 
+                {id
+                  ? `Edit ${type === 'proforma' ? 'Proforma Invoice' : type === 'po' ? 'Purchase Order' : 'Quotation'}`
                   : `Generate ${type === 'proforma' ? 'Proforma Invoice' : type === 'po' ? 'Purchase Order' : 'Quotation'}`}
               </h1>
               <p className="text-[10px] font-black text-secondary uppercase tracking-widest flex items-center gap-2">
@@ -308,8 +308,8 @@ export default function QuotationForm({ id, type = 'quotation' }: QuotationFormP
               >
                 <option value="pending">Pending</option>
                 <option value="inprogress">In Progress</option>
-                <option value="complete">Complete</option>
-                <option value="reject">Reject</option>
+                <option value="received">received</option>
+                <option value="Not received">Not received</option>
               </select>
             ) : (
               <select
@@ -318,7 +318,7 @@ export default function QuotationForm({ id, type = 'quotation' }: QuotationFormP
                 className="bg-surface-container-lowest p-3 border border-surface-container-high outline-none font-bold text-xs uppercase"
               >
                 <option value="pending">Pending</option>
-                <option value={type === 'po' ? 'completed' : 'paid'}>{type === 'po' ? 'Completed' : 'Paid'}</option>
+                <option value={type === 'po' ? 'received' : 'paid'}>{type === 'po' ? 'received' : 'Paid'}</option>
                 <option value="cancelled">Cancelled</option>
               </select>
             )}
@@ -327,8 +327,8 @@ export default function QuotationForm({ id, type = 'quotation' }: QuotationFormP
               className="bg-primary text-white px-8 py-4 text-xs font-black uppercase tracking-widest flex items-center gap-3 hover:bg-primary/90 shadow-2xl transition-all active:scale-95"
             >
               <Save className="w-4 h-4" />
-              {id 
-                ? `Update ${type === 'proforma' ? 'Invoice' : type === 'po' ? 'Order' : 'Quotation'}` 
+              {id
+                ? `Update ${type === 'proforma' ? 'Invoice' : type === 'po' ? 'Order' : 'Quotation'}`
                 : `Save ${type === 'proforma' ? 'Invoice' : type === 'po' ? 'Order' : 'Quotation'}`}
             </button>
           </div>
@@ -644,7 +644,7 @@ export default function QuotationForm({ id, type = 'quotation' }: QuotationFormP
                   <span className="text-sm font-black text-white">₹{formData.tax.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
                 </div>
 
-                {formData.status === 'complete' && (
+                {formData.status === 'received' && (
                   <div className="flex justify-between items-center group pt-4 border-t border-white/10">
                     <span className="text-[10px] font-bold text-white uppercase ">Additional Discount (₹)</span>
                     <input

@@ -68,8 +68,8 @@ export default function ReportsPage() {
 
   const getStatusStyle = (status: string) => {
     switch (status) {
-      case 'complete': return 'bg-green-100 text-green-700 border-green-200';
-      case 'reject': return 'bg-red-100 text-red-700 border-red-200';
+      case 'received': return 'bg-green-100 text-green-700 border-green-200';
+      case 'Not received': return 'bg-red-100 text-red-700 border-red-200';
       case 'inprogress': return 'bg-blue-100 text-blue-700 border-blue-200';
       case 'pending': return 'bg-yellow-100 text-yellow-700 border-yellow-200';
       default: return 'bg-gray-100 text-gray-700 border-gray-200';
@@ -83,8 +83,8 @@ export default function ReportsPage() {
       statusBreakdown: {
         pending: 0,
         inprogress: 0,
-        complete: 0,
-        reject: 0
+        received: 0,
+        Notreceived: 0
       }
     };
 
@@ -148,8 +148,8 @@ export default function ReportsPage() {
               <option value="">All Statuses</option>
               <option value="pending">Pending</option>
               <option value="inprogress">In Progress</option>
-              <option value="complete">Complete</option>
-              <option value="reject">Reject</option>
+              <option value="received">received</option>
+              <option value="Not received">Not received</option>
             </select>
           </div>
 
@@ -180,15 +180,15 @@ export default function ReportsPage() {
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} className="bg-surface-container-lowest p-6 border-b-4 border-green-500 shadow-sm">
             <p className="text-[10px] font-bold text-secondary uppercase tracking-widest mb-1">Completion Rate</p>
             <h2 className="text-2xl font-black text-on-surface">
-              {total > 0 ? Math.round((quotations.filter(q => q.status === 'complete').length / quotations.length) * 100) : 0}%
+              {total > 0 ? Math.round((quotations.filter(q => q.status === 'received').length / quotations.length) * 100) : 0}%
             </h2>
             <p className="text-[9px] text-secondary mt-2 font-bold uppercase italic">Based on status</p>
           </motion.div>
 
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }} className="bg-surface-container-lowest p-6 border-b-4 border-red-500 shadow-sm">
-            <p className="text-[10px] font-bold text-secondary uppercase tracking-widest mb-1">Rejection Rate</p>
+            <p className="text-[10px] font-bold text-secondary uppercase tracking-widest mb-1">Not receivedion Rate</p>
             <h2 className="text-2xl font-black text-on-surface">
-              {total > 0 ? Math.round((quotations.filter(q => q.status === 'reject').length / quotations.length) * 100) : 0}%
+              {total > 0 ? Math.round((quotations.filter(q => q.status === 'Not received').length / quotations.length) * 100) : 0}%
             </h2>
             <p className="text-[9px] text-secondary mt-2 font-bold uppercase italic">Risk Indicator</p>
           </motion.div>

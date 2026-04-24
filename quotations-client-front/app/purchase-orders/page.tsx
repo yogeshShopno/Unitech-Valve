@@ -55,7 +55,7 @@ export default function PurchaseOrderList() {
 
   const getStatusStyle = (status: string) => {
     switch (status) {
-      case 'completed': return 'bg-green-100 text-green-700 border-green-200';
+      case 'received': return 'bg-green-100 text-green-700 border-green-200';
       case 'cancelled': return 'bg-red-100 text-red-700 border-red-200';
       case 'pending': return 'bg-yellow-100 text-yellow-700 border-yellow-200';
       default: return 'bg-gray-100 text-gray-700 border-gray-200';
@@ -117,21 +117,21 @@ export default function PurchaseOrderList() {
                     </td>
                     <td className="px-6 py-5 text-right">
                       <div className="flex justify-end gap-2 isolate">
-                        <button 
+                        <button
                           onClick={() => router.push(`/purchase-orders/${order._id}/preview`)}
                           className="w-8 h-8 flex items-center justify-center border border-surface-container-high text-secondary hover:text-primary hover:border-primary transition-all shadow-sm bg-white"
                           title="View PO"
                         >
                           <Eye className="w-3.5 h-3.5" />
                         </button>
-                        <button 
+                        <button
                           onClick={() => router.push(`/purchase-orders/edit/${order._id}`)}
                           className="w-8 h-8 flex items-center justify-center border border-surface-container-high text-secondary hover:text-primary hover:border-primary transition-all shadow-sm bg-white"
                           title="Edit"
                         >
                           <Edit2 className="w-3.5 h-3.5" />
                         </button>
-                        <button 
+                        <button
                           onClick={() => handleDelete(order._id)}
                           className="w-8 h-8 flex items-center justify-center border border-surface-container-high text-secondary hover:text-red-500 hover:border-red-500 transition-all shadow-sm bg-white"
                           title="Delete"
@@ -150,7 +150,7 @@ export default function PurchaseOrderList() {
                 Total {total} Orders
               </span>
               <div className="flex gap-1">
-                <button 
+                <button
                   disabled={page === 1}
                   onClick={() => setPage(page - 1)}
                   className="w-8 h-8 flex items-center justify-center border border-surface-container-high hover:bg-surface-container-high disabled:opacity-20 transition-all font-bold"
@@ -160,7 +160,7 @@ export default function PurchaseOrderList() {
                 <div className="flex items-center px-4 text-xs font-black uppercase text-primary bg-primary/5">
                   Page {page} of {Math.ceil(total / limit) || 1}
                 </div>
-                <button 
+                <button
                   disabled={page >= Math.ceil(total / limit)}
                   onClick={() => setPage(page + 1)}
                   className="w-8 h-8 flex items-center justify-center border border-surface-container-high hover:bg-surface-container-high disabled:opacity-20 transition-all font-bold"

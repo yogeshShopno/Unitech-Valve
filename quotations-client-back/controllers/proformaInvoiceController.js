@@ -38,7 +38,7 @@ const convertQuotationToProforma = async (req, res) => {
 
     // Update quotation status
     quotation.performa_invoice = true;
-    quotation.status = 'complete';
+    quotation.status = 'received';
     await quotation.save();
 
     res.status(201).json(proformaInvoice);

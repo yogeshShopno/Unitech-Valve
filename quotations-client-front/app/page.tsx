@@ -2,13 +2,13 @@
 
 import React from 'react';
 import { Shell } from '@/components/Shell';
-import { 
-  TrendingUp, 
-  Clock, 
-  CreditCard, 
-  MoreVertical, 
-  PlusCircle, 
-  UserPlus, 
+import {
+  TrendingUp,
+  Clock,
+  CreditCard,
+  MoreVertical,
+  PlusCircle,
+  UserPlus,
   FileDown,
   ArrowRight
 } from 'lucide-react';
@@ -44,11 +44,11 @@ const summaryCards = [
 ];
 
 const recentQuotations = [
-  { id: 'QTN-2023-001', party: 'Reliance Engineering Ltd.', date: 'Oct 12, 2023', amount: '₹4,25,000', status: 'complete', statusColor: 'bg-green-100 text-green-700 border-green-200' },
+  { id: 'QTN-2023-001', party: 'Reliance Engineering Ltd.', date: 'Oct 12, 2023', amount: '₹4,25,000', status: 'received', statusColor: 'bg-green-100 text-green-700 border-green-200' },
   { id: 'QTN-2023-002', party: 'Tata Heavy Hydraulics', date: 'Oct 11, 2023', amount: '₹12,80,000', status: 'inprogress', statusColor: 'bg-blue-100 text-blue-700 border-blue-200' },
   { id: 'QTN-2023-003', party: 'Bharat Valve Works', date: 'Oct 10, 2023', amount: '₹85,000', status: 'pending', statusColor: 'bg-yellow-100 text-yellow-700 border-yellow-200' },
   { id: 'QTN-2023-004', party: 'Jindal Steel Pvt Ltd.', date: 'Oct 09, 2023', amount: '₹34,50,000', status: 'inprogress', statusColor: 'bg-blue-100 text-blue-700 border-blue-200' },
-  { id: 'QTN-2023-005', party: 'Adani Infrastructure', date: 'Oct 08, 2023', amount: '₹7,20,000', status: 'complete', statusColor: 'bg-green-100 text-green-700 border-green-200' },
+  { id: 'QTN-2023-005', party: 'Adani Infrastructure', date: 'Oct 08, 2023', amount: '₹7,20,000', status: 'received', statusColor: 'bg-green-100 text-green-700 border-green-200' },
 ];
 
 export default function Dashboard() {

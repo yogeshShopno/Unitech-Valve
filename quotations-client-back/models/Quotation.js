@@ -21,7 +21,7 @@ const QuotationSchema = new mongoose.Schema({
   Additional_discount: { type: Number, default: 0 },
   total: { type: Number, required: true },
   referencePerson: { type: String },
-  status: { type: String, enum: ['pending', 'complete', 'inprogress', 'reject'], default: 'pending' },
+  status: { type: String, enum: ['pending', 'received', 'inprogress', 'Not received'], default: 'pending' },
   terms: { type: String },
   performa_invoice: { type: Boolean, default: false },
 }, { timestamps: true });

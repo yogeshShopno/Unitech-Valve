@@ -32,7 +32,6 @@ function PurchaseOrderPreview() {
   const id = params.id;
   const [order, setOrder] = useState<any>(null);
   const [loading, setLoading] = useState(true);
-  const API_BASE = process.env.NEXT_PUBLIC_API_URL?.replace('/api/', '') ?? 'http://localhost:5000';
   const orderRef = React.useRef<HTMLDivElement>(null);
 
   useEffect(() => {

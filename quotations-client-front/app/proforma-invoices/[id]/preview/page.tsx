@@ -310,23 +310,30 @@ function ProformaInvoicePreview() {
               </tbody>
             </table>
 
-            <div className="absolute bottom-0 right-0 w-[240px] border-t border-l border-black z-10 bg-white">
-              <div className="flex justify-between px-[8px] py-[3px] border-b border-black">
+            <div className="absolute bottom-0 right-0 w-full border-t  border-black z-10 bg-white">
+                            <div className='w-[240px] my-2  ml-auto'>
+
+                <div className="flex justify-between px-[8px] py-[3px] ">
                 <span className="font-bold">SUB TOTAL</span>
                 <span>{invoice?.subTotal?.toLocaleString(undefined, { minimumFractionDigits: 2 })}</span>
               </div>
-              <div className="flex justify-between px-[8px] py-[3px] border-b border-black">
+                           <div className="flex  justify-between px-[8px] py-[3px] ">
+
                 <span className="font-bold">ADDL. DISCOUNT</span>
                 <span>{invoice?.Additional_discount?.toLocaleString(undefined, { minimumFractionDigits: 2 })}</span>
               </div>
-              <div className="flex justify-between px-[8px] py-[3px] border-b border-black">
+                    <div className="flex  justify-between px-[8px] py-[3px] ">
+
                 <span className="font-bold">TAX.</span>
                 <span>{invoice?.tax?.toLocaleString(undefined, { minimumFractionDigits: 2 })}</span>
               </div>
-              <div className="flex justify-between px-[8px] py-[3px]">
+                         <div className="flex  justify-between px-[8px] py-[3px] ">
+
                 <span className="font-bold">GRAND TOTAL</span>
                 <span className="font-bold">{invoice?.total?.toLocaleString(undefined, { minimumFractionDigits: 2 })}</span>
               </div>
+              </div>
+
             </div>
           </div>
 

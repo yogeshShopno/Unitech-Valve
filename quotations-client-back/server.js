@@ -119,7 +119,7 @@ seedProducts();
 
 // Middleware
 app.use(cors({
-  origin: ['http://localhost:3000', 'http://localhost:3001', 'http://192.168.1.132:3000', 'http://192.168.1.132:3001'],
+  origin: ['http://localhost:3000', 'http://localhost:3001', 'http://192.168.1.132:3000', 'http://192.168.1.132:3001', "https://unitech-valve.vercel.app/"],
   credentials: true
 }));
 app.use(cookieParser());
@@ -143,7 +143,9 @@ app.use('/api/products', productRoutes);
 app.use('/api/proforma-invoices', proformaInvoiceRoutes);
 app.use('/api/purchase-parties', purchasePartyRoutes);
 app.use('/api/purchase-orders', purchaseOrderRoutes);
-
+app.get("/", (req, res) => {
+  res.send("API is running 🚀");
+});
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
