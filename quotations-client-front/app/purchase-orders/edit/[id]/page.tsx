@@ -1,10 +1,16 @@
 'use client';
 
+import { Suspense } from 'react';
 import { useParams } from 'next/navigation';
 import QuotationForm from '../../../quotations/QuotationForm';
 
 export default function EditPurchaseOrder() {
   const { id } = useParams();
   
-  return <QuotationForm id={id as string} type="po" />;
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <QuotationForm id={id as string} type="po" />
+    </Suspense>
+  );
 }
+

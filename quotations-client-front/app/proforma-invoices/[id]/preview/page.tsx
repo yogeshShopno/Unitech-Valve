@@ -3,6 +3,8 @@ import React, { useState, useEffect } from 'react';
 import { ArrowLeft, Printer, Download, Loader2, Edit2 } from 'lucide-react';
 import Link from 'next/link';
 import { useParams, useRouter, useSearchParams } from 'next/navigation';
+import { Suspense } from 'react';
+
 import { apiFetch } from '@/lib/api';
 // import html2pdf from 'html2pdf.js';
 
@@ -16,7 +18,15 @@ function formatDate(dateStr: string | undefined, format = 'dd/MM/yyyy'): string 
   return format.replace('dd', dd).replace('MM', mm).replace('yyyy', String(yyyy));
 }
 
-export default function ProformaInvoicePreview() {
+export default function ProformaInvoicePreviewPage() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <ProformaInvoicePreview />
+    </Suspense>
+  );
+}
+
+function ProformaInvoicePreview() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const autoDownload = searchParams.get('autoDownload') === 'true';

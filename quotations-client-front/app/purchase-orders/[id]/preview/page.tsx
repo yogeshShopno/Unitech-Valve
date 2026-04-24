@@ -3,6 +3,8 @@ import React, { useState, useEffect } from 'react';
 import { ArrowLeft, Printer, Download, Loader2, Edit2 } from 'lucide-react';
 import Link from 'next/link';
 import { useParams, useRouter, useSearchParams } from 'next/navigation';
+import { Suspense } from 'react';
+
 import { apiFetch } from '@/lib/api';
 
 function formatDate(dateStr: string | undefined, format = 'dd/MM/yyyy'): string {
@@ -15,7 +17,15 @@ function formatDate(dateStr: string | undefined, format = 'dd/MM/yyyy'): string 
   return format.replace('dd', dd).replace('MM', mm).replace('yyyy', String(yyyy));
 }
 
-export default function PurchaseOrderPreview() {
+export default function PurchaseOrderPreviewPage() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <PurchaseOrderPreview />
+    </Suspense>
+  );
+}
+
+function PurchaseOrderPreview() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const params = useParams();
