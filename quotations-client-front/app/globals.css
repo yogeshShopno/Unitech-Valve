@@ -1,0 +1,63 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #3a5f94;
+  --color-primary-dim: #2d5387;
+  --color-primary-container: #d5e3ff;
+  --color-on-primary: #f6f7ff;
+  --color-on-primary-container: #2c5287;
+  
+  --color-secondary: #4d626c;
+  --color-secondary-dim: #415660;
+  --color-secondary-container: #cfe6f2;
+  --color-on-secondary: #f2faff;
+  --color-on-secondary-container: #40555f;
+
+  --color-surface: #f8f9fa;
+  --color-on-surface: #2b3437;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #f1f4f6;
+  --color-surface-container: #eaeff1;
+  --color-surface-container-high: #e3e9ec;
+  --color-surface-container-highest: #dbe4e7;
+  
+  --color-error: #9f403d;
+  --color-error-container: #fe8983;
+  --color-on-error: #fff7f6;
+
+  /* Force HEX for common grays to fix html2canvas oklch/oklab errors */
+  --color-gray-50: #f9fafb;
+  --color-gray-100: #f3f4f6;
+  --color-gray-200: #e5e7eb;
+  --color-gray-300: #d1d5db;
+  --color-gray-400: #9ca3af;
+  --color-gray-500: #6b7280;
+  --color-gray-600: #4b5563;
+  --color-gray-700: #374151;
+  --color-gray-800: #1f2937;
+  --color-gray-900: #111827;
+  --color-gray-950: #030712;
+
+  /* Override shadow colors to use standard rgba instead of oklab/oklch */
+  --default-shadow-color: rgba(0, 0, 0, 0.1);
+  
+  --font-headline: var(--font-work-sans);
+  --font-body: var(--font-inter);
+}
+
+:root {
+  --font-sans: var(--font-inter);
+  --font-mono: "JetBrains Mono", monospace;
+  /* Extra safety for html2canvas */
+  --tw-shadow-color: 0, 0, 0;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-surface);
+  color: var(--color-on-surface);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-headline);
+}
