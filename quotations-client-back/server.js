@@ -63,7 +63,7 @@ const seedClients = async () => {
         }
       ];
       await Client.insertMany(clients);
-      console.log('Sample clients created');
+      // console.log('Sample clients created');
     }
   } catch (err) {
     console.error('Error seeding clients:', err);
@@ -106,7 +106,7 @@ const seedProducts = async () => {
         }
       ];
       await Product.insertMany(products);
-      console.log('Sample products created');
+      // console.log('Sample products created');
     }
   } catch (err) {
     console.error('Error seeding products:', err);
